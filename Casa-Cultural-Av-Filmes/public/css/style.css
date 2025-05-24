@@ -1,0 +1,138 @@
+/* Reset básico */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header #logo {
+    width: 80px; /* Ajuste conforme necessário */
+    margin-bottom: 10px;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    max-width: 960px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+}
+
+#destaques {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#destaques h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilos para a página de filmes */
+.lista-filmes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.filme-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.filme-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.filme-card h3 {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.filme-card p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+/* Estilos para formulário de contato */
+.form-contato label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-contato input[type="text"],
+.form-contato input[type="email"],
+.form-contato textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-contato button {
+    background: #5cb85c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-contato button:hover {
+    background: #4cae4c;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    margin-top: 20px;
+}
