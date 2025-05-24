@@ -1,138 +1,208 @@
-/* Reset básico */
-body, h1, h2, p, ul, li {
+/* css/style.css */
+/* Reset basic styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body and general styles */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f4f4f9; /* Cor de fundo padrão para tema claro */
+    color: #333;             /* Cor de texto padrão para tema claro */
+    padding-bottom: 60px; /* Adiciona espaço para o rodapé fixo não sobrepor o conteúdo */
 }
 
+/* Header section */
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header #logo {
-    width: 80px; /* Ajuste conforme necessário */
-    margin-bottom: 10px;
-}
-
-header h1 {
-    margin-bottom: 0.5rem;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-main {
-    padding: 20px;
-    max-width: 960px;
-    margin: 20px auto;
-    background: #fff;
-    border-radius: 8px;
-}
-
-#destaques {
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-#destaques h2 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Estilos para a página de filmes */
-.lista-filmes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.filme-card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.filme-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.filme-card h3 {
-    margin-bottom: 5px;
-    color: #555;
-}
-
-.filme-card p {
-    font-size: 0.9em;
-    color: #666;
-}
-
-
-/* Estilos para formulário de contato */
-.form-contato label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-contato input[type="text"],
-.form-contato input[type="email"],
-.form-contato textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.form-contato button {
-    background: #5cb85c;
+    background-color: #2c3e50;
     color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.form-contato button:hover {
-    background: #4cae4c;
-}
-
-.error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: -5px;
-    margin-bottom: 10px;
-}
-
-footer {
+    padding: 15px 0;
     text-align: center;
+}
+
+header h1 { /* Adicionado para estilizar o H1 do header especificamente */
+    font-size: 2em;
+    margin: 0;
+}
+
+header p { /* Adicionado para estilizar o P do header especificamente */
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* Navigation menu */
+nav {
+    background-color: #34495e;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content section */
+.content {
     padding: 20px;
-    background: #333;
-    color: #fff;
-    margin-top: 20px;
+    text-align: center; /* Centraliza o texto dentro de .content */
+}
+
+.content h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333; /* Garante que h2 no tema claro seja escuro */
+}
+
+.content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333; /* Garante que h3 no tema claro seja escuro */
+}
+
+.content p { /* Estilo para parágrafos dentro de .content */
+    font-size: 1.2em; /* Ajustado para consistência */
+    line-height: 1.6;
+    margin-bottom: 15px; /* Adicionado para espaçamento */
+    color: #333; /* Garante que p no tema claro seja escuro */
+}
+
+.content ul {
+    list-style-type: none;
+    margin-bottom: 20px;
+    padding-left: 0; /* Remove padding padrão da lista */
+}
+
+.content li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333; /* Garante que li no tema claro seja escuro */
+}
+
+.content .btn, .theme-toggle button { /* Aplicando estilo base do .btn aos botões de tema também */
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none; /* Remove borda padrão de botões */
+    cursor: pointer; /* Muda o cursor para indicar clicabilidade */
+    margin: 5px; /* Adiciona um pequeno espaçamento entre os botões de tema */
+}
+
+.content .btn:hover, .theme-toggle button:hover {
+    background-color: #34495e;
+}
+
+/* Theme Toggle Buttons Container */
+.theme-toggle {
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+/* Footer section */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Tema Claro - Padrão (alguns estilos já definidos, outros para garantir contraste) */
+.tema-claro {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.tema-claro header,
+.tema-claro nav,
+.tema-claro footer {
+    background-color: #2c3e50; /* Azul escuro para header/nav/footer no claro */
+    color: white;
+}
+.tema-claro nav a {
+    color: white;
+}
+.tema-claro nav a:hover {
+    color: #e0e0e0; /* Levemente mais claro no hover */
+}
+.tema-claro .content h2,
+.tema-claro .content h3,
+.tema-claro .content p,
+.tema-claro .content li {
+    color: #333; /* Texto escuro para conteúdo no tema claro */
+}
+.tema-claro .content .btn {
+    background-color: #2c3e50;
+    color: white;
+}
+.tema-claro .content .btn:hover {
+    background-color: #34495e;
+}
+.tema-claro .theme-toggle button { /* Botões de tema no tema claro */
+    background-color: #5e87a0;
+    color: white;
+}
+.tema-claro .theme-toggle button:hover {
+    background-color: #4a6b80;
+}
+
+
+/* Tema Escuro */
+.tema-escuro {
+    background-color: #121212;
+    color: #f4f4f4;
+}
+
+.tema-escuro header,
+.tema-escuro nav,
+.tema-escuro footer {
+    background-color: #1f1f1f; /* Cinza bem escuro para header/nav/footer no escuro */
+    color: #f4f4f4;
+}
+
+.tema-escuro nav a {
+    color: #81c784; /* Verde claro para links na nav no tema escuro */
+}
+
+.tema-escuro nav a:hover {
+    text-decoration: underline;
+    color: #a5d6a7;
+}
+
+.tema-escuro .content h2,
+.tema-escuro .content h3,
+.tema-escuro .content p,
+.tema-escuro .content li {
+    color: #f4f4f4; /* Texto claro para conteúdo no tema escuro */
+}
+
+.tema-escuro .content .btn {
+    background-color: #333; /* Cinza escuro para botões no tema escuro */
+    color: #f4f4f4;
+}
+
+.tema-escuro .content .btn:hover {
+    background-color: #444;
+}
+
+.tema-escuro .theme-toggle button { /* Botões de tema no tema escuro */
+    background-color: #555;
+    color: #f4f4f4;
+}
+.tema-escuro .theme-toggle button:hover {
+    background-color: #666;
 }
