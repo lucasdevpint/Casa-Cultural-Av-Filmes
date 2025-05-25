@@ -1,74 +1,49 @@
 // js/theme.js
+
+// Função para alterar o tema e salvar a preferência em um cookie
 function alterarTema(temaEscolhido) {
-    document.cookie = "tema=" + temaEscolhido + ";path=/;max-age=" + (60 * 60 * 24 * 30); // Cookie por 30 dias
-    aplicarTema(temaEscolhido);
-}
-
-function aplicarTema(tema) {
-    // Remove classes de tema anteriores para evitar conflitos
-    document.body.classList.remove("tema-claro", "tema-escuro");
-
-    if (tema === "escuro") {
-        document.body.classList.add("tema-escuro");
-    } else {
-        document.body.classList.add("tema-claro"); // Padrão é o tema claro
-    }
-}
-
-function lerCookie(nome) {
-    const nomeEQ = nome + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nomeEQ) === 0) return c.substring(nomeEQ.length, c.length);
-    }
-    return null; // Retorna null se o cookie não for encontrado
-}
-
-window.onload = function() {
-    const temaSalvo = lerCookie("tema");
-    if (temaSalvo) {
-        aplicarTema(temaSalvo);
-    } else {
-        aplicarTema("claro"); // Aplica tema claro como padrão se não houver cookie
-    }
-};
-
-function alterarTema(temaEscolhido) {
-    // Salva a preferência do tema em um cookie que expira em 30 dias
+    // O cookie é configurado para expirar em 30 dias
     document.cookie = "tema=" + temaEscolhido + ";path=/;max-age=" + (60 * 60 * 24 * 30); 
-    aplicarTema(temaEscolhido); // Aplica o tema imediatamente
+    aplicarTema(temaEscolhido); // Aplica o tema visualmente na página
 }
 
+// Função para aplicar as classes CSS do tema ao body da página
 function aplicarTema(tema) {
-    // Remove classes de tema anteriores para garantir que apenas uma seja aplicada
+    // Remove classes de tema anteriores para evitar conflitos e garantir que apenas uma esteja ativa
     document.body.classList.remove("tema-claro", "tema-escuro");
 
     if (tema === "escuro") {
         document.body.classList.add("tema-escuro");
     } else {
-        document.body.classList.add("tema-claro"); // O tema claro é o padrão
+        document.body.classList.add("tema-claro"); // O tema claro é o padrão se nenhum tema específico for definido
     }
 }
 
+// Função para ler o valor de um cookie específico pelo nome
 function lerCookie(nome) {
     const nomeEQ = nome + "=";
-    const ca = document.cookie.split(';'); // Divide a string de cookies em um array
+    const ca = document.cookie.split(';'); // Divide a string de todos os cookies em um array
+
     for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length); // Remove espaços em branco
-        if (c.indexOf(nomeEQ) === 0) return c.substring(nomeEQ.length, c.length); // Retorna o valor do cookie
+        // Remove espaços em branco no início do nome do cookie
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1, c.length);
+        }
+        // Se o cookie for encontrado, retorna seu valor
+        if (c.indexOf(nomeEQ) === 0) {
+            return c.substring(nomeEQ.length, c.length);
+        }
     }
-    return null; // Retorna null se o cookie não for encontrado
+    return null; // Retorna null se o cookie com o nome especificado não for encontrado
 }
 
-// Event listener para aplicar o tema salvo quando a página é totalmente carregada
+// Event listener que é acionado quando a página inteira (incluindo estilos, imagens) é carregada
 window.addEventListener('load', function() {
-    const temaSalvo = lerCookie("tema"); // Lê o cookie 'tema'
+    const temaSalvo = lerCookie("tema"); // Tenta ler a preferência de tema salva no cookie
     if (temaSalvo) {
-        aplicarTema(temaSalvo); // Aplica o tema salvo
+        aplicarTema(temaSalvo); // Se encontrou uma preferência salva, aplica esse tema
     } else {
-        aplicarTema("claro"); // Aplica o tema claro como padrão se nenhum cookie for encontrado
+        aplicarTema("claro"); // Caso contrário, aplica o tema claro como padrão
     }
 });
